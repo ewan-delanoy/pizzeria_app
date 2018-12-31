@@ -1,0 +1,10 @@
+<h1>Place new order</h1>
+<%= form_for @article do |f| %>
+  <p>
+    <%= f.label :recipe %><br/>
+    <%= f.text_field :recipe %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
