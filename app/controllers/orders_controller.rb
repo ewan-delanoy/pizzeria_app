@@ -1,4 +1,7 @@
 class OrdersController < ApplicationController
+  def index
+    @orders = Order.all
+  end
   def new
     @order = Order.new
   end
@@ -11,7 +14,7 @@ class OrdersController < ApplicationController
     @order.orderer_last_name="Lee"
     @order.save
     if @order.save
-      flash[:notice] = "Order was successfully placed"
+      flash[:notice] = "Votre commande a bien été reçue."
       redirect_to order_path(@order)
     else
       render 'new'
@@ -28,8 +31,9 @@ class OrdersController < ApplicationController
   end
   def update
     @order = Order.find(params[:id])
-    if @order.update(order_params)
-      flash[:notice] = "order was successfully updated"
+    some_params = params.require(:order).permit(:state)
+    if @order.update(some_params)
+      flash[:notice] = "La commande a bien été mise à jour."
       redirect_to order_path(@order)
     else
       render 'edit'
