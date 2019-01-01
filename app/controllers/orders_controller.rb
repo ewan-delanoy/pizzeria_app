@@ -8,7 +8,15 @@ class OrdersController < ApplicationController
     @order.user_id = 1
     @order.admin_id = 1
     @order.save
-    redirect_to order_path(@order)
+    if @order.save
+      flash[:notice] = "Order was successfully placed"
+      redirect_to order_path(@order)
+    else
+      render 'new'
+    end
+  end
+  def show
+    @order = Order.find(params[:id])
   end
   private
   def order_params
