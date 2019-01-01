@@ -1,0 +1,29 @@
+<h1>Edit existing order</h1>
+<% if @order.errors.any? %>
+  <h2>The following errors prevented the order from getting created</h2>
+  <ul>
+    <% @order.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+<%= form_for @order do |f| %>
+  <p>
+    <%= f.label :state %><br/>
+    <%= f.text_field :state %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<<h1>Showing selected order</h1>
+<p>
+  Recipe: <%= @order.recipe %>
+</p>
+<p>
+  State: <%= @order.state %>
+</p>
+
+<%= link_to "Edit this order", edit_order_path(@order) %> |
+<%= link_to "Back to orders listing", orders_path %>
