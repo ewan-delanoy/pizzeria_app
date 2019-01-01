@@ -1,11 +1,4 @@
-<% if @order.errors.any? %>
-  <h2>The following errors prevented the order from getting placed</h2>
-  <ul>
-  <% @order.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
-  <% end %>
-  </ul>
-<% end %>
+<%= render 'errors' %>
 
 <h1>Place new order</h1>
 <%= form_for @order do |f| %>
@@ -17,5 +10,3 @@
     <%= f.submit %>
   </p>
 <% end %>
-
-<%= link_to "Back to orders listing", orders_path %>
