@@ -7,6 +7,8 @@ class OrdersController < ApplicationController
     @order.state = "Reçue"
     @order.user_id = 1
     @order.admin_id = 1
+    @order.orderer_first_name="Peggy"
+    @order.orderer_last_name="Lee"
     @order.save
     if @order.save
       flash[:notice] = "Order was successfully placed"
@@ -18,12 +20,12 @@ class OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
   end
-
+  def show
+    @order = Order.find(params[:id])
+  end
   def edit
     @order = Order.find(params[:id])
   end
-
-
   def update
     @order = Order.find(params[:id])
     if @order.update(order_params)
@@ -33,7 +35,6 @@ class OrdersController < ApplicationController
       render 'edit'
     end
   end
-
   private
   def order_params
     params.require(:order).permit(:recipe)
