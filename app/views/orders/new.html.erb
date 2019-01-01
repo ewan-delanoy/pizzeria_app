@@ -1,3 +1,12 @@
+<% if @order.errors.any? %>
+  <h2>The following errors prevented the order from getting placed</h2>
+  <ul>
+  <% @order.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+  </ul>
+<% end %>
+
 <h1>Place new order</h1>
 <%= form_for @order do |f| %>
   <p>
