@@ -1,7 +1,17 @@
-<h1>Showing selected order</h1>
-<p>
-  Recipe: <%= @order.recipe %>
-</p>
-<p>
-  State: <%= @order.state %>
-</p>
+<h1 align="center">Détails de la commande</h1>
+
+<h2 align="center">Numéro de la commande: <%= @order.id %></h2>
+<div class="well col-xs-8 col-xs-offset-2">
+  <h4 class="center description"> Prénom : <%= @order.orderer_first_name %> </h4>
+  <hr>
+  <h4 class="center description"> Nom : <%= @order.orderer_last_name %> </h4>
+  <hr>
+  <h4 class="center description"> Recette : <%= @order.recipe %> </h4>
+  <hr>
+  <h4 class="center description"> Avancement : <%= @order.state %> </h4>
+  <hr>
+  <div class="order-actions">
+    <%= link_to "Mettre à jour", edit_order_path(@order), class: "btn btn-xs btn-primary" %>
+    <%= link_to "Toutes les commandes", orders_path, class: "btn btn-xs btn-success" %>
+  </div>
+</div>
