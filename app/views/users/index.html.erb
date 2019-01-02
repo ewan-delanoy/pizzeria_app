@@ -1,0 +1,14 @@
+<h1>Liste des commandes</h1>
+
+<table>
+  <tr>
+    <th>Prénom Client</th>
+    <th>Nom Client</th>
+  </tr>
+  <% @users.each do |user| %>
+  <tr>
+    <td><%= user.first_name %></td>
+    <td><%= user.last_name %></td>
+  </tr>
+  <% end %>
+</table>
