@@ -9,13 +9,13 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @order.state = "Reçue"
-    @order.user_id = 1
+    @order.user_id = 2
     @order.admin_id = 1
     @order.orderer_first_name="Peggy"
     @order.orderer_last_name="Lee"
     @order.save
     if @order.save
-      flash[:notice] = "Votre commande a bien été reçue."
+      flash[:success] = "Votre commande a bien été reçue."
       redirect_to order_path(@order)
     else
       render 'new'
@@ -28,7 +28,7 @@ class OrdersController < ApplicationController
   def update
     some_params = params.require(:order).permit(:state)
     if @order.update(some_params)
-      flash[:notice] = "La commande a bien été mise à jour."
+      flash[:success] = "La commande a bien été mise à jour."
       redirect_to order_path(@order)
     else
       render 'edit'
