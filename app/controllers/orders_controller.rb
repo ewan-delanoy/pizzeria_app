@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  before_action :set_usual_order, only: [:show, :edit, :update]
   def index
     @orders = Order.all
   end
@@ -21,16 +22,10 @@ class OrdersController < ApplicationController
     end
   end
   def show
-    @order = Order.find(params[:id])
-  end
-  def show
-    @order = Order.find(params[:id])
   end
   def edit
-    @order = Order.find(params[:id])
   end
   def update
-    @order = Order.find(params[:id])
     some_params = params.require(:order).permit(:state)
     if @order.update(some_params)
       flash[:notice] = "La commande a bien été mise à jour."
@@ -40,6 +35,9 @@ class OrdersController < ApplicationController
     end
   end
   private
+  def set_usual_order
+    @order = Order.find(params[:id])
+  end
   def order_params
     params.require(:order).permit(:recipe)
   end
