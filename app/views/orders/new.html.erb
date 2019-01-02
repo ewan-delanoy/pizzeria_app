@@ -1,12 +1,39 @@
+
+<h1 align="center">Passez votre commande</h1>
 <%= render 'errors' %>
 
-<h1>Place new order</h1>
-<%= form_for @order do |f| %>
-  <p>
-    <%= f.label :recipe %><br/>
-    <%= f.text_field :recipe %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+<div class='row'>
+  <div class='col-xs-12'>
+    <%= form_for(@order, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+      <div class="form-group">
+        <div class="control-label col-sm-4">
+          <%= f.label :orderer_first_name, "Votre prénom : " %>
+        </div>
+        <div class="col-sm-6">
+          <%= f.text_field :orderer_first_name, class: "form-control", placeholder: "Peggy", :readonly => true %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="control-label col-sm-4">
+          <%= f.label :orderer_last_name, "Votre nom : " %>
+        </div>
+        <div class="col-sm-6">
+          <%= f.text_field :orderer_last_name, class: "form-control", placeholder: "Lee", :readonly => true %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="control-label col-sm-4">
+          <%= f.label :recipe, "Recette : " %>
+        </div>
+        <div class="col-sm-6">
+          <%= f.text_field :recipe, class: "form-control", placeholder: "Recette" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-4 col-sm-4">
+          <%= f.submit "Je passe ma commande", class: 'btn btn-primary btn-lg'  %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

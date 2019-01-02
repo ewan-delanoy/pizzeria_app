@@ -2,20 +2,20 @@
 
 <table>
   <tr>
-    <th>Numéro</th>
-    <th>Recette</th>
-    <th>Avancement</th>
     <th>Prénom Client</th>
     <th>Nom Client</th>
+    <th>Recette</th>
+    <th>Numéro</th>
+    <th>Avancement</th>
   </tr>
   <% @orders.each do |order| %>
   <tr>
-    <td><%= order.id %></td>
-    <td><%= order.recipe %></td>
-    <td><%= order.state %></td>
     <td><%= order.orderer_first_name %></td>
     <td><%= order.orderer_last_name %></td>
-    <td><%= link_to 'Modifier', edit_order_path(order) %></td>
+    <td><%= order.recipe %></td>
+    <td><%= order.id %></td>
+    <td><%= order.state %></td>
+    <td><%= link_to 'Mettre à jour', edit_order_path(order) %></td>
     <td><%= link_to 'Montrer', order_path(order) %></td>
   </tr>
   <% end %>
