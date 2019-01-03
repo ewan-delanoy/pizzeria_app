@@ -1,14 +1,19 @@
-<h1>Liste des commandes</h1>
+<h1 align="center">Liste des clients</h1>
 
-<table>
-  <tr>
-    <th>Prénom Client</th>
-    <th>Nom Client</th>
-  </tr>
-  <% @users.each do |user| %>
-  <tr>
-    <td><%= user.first_name %></td>
-    <td><%= user.last_name %></td>
-  </tr>
-  <% end %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Prénom</th>
+      <th scope="col">Nom</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+    <tr class="alternating-tr">
+      <td><%= user.first_name %></td>
+      <td><%= user.last_name %></td>
+    </tr>
+    <% end %>
+  </tbody>
 </table>
