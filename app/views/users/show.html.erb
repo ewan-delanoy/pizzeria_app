@@ -1,0 +1,27 @@
+<h1 align="center">Coordonnées client</h1>
+<div class="well col-xs-8 col-xs-offset-2">
+<h2 align="center">Prénom: <%= @user.first_name %></h2>
+<br/>
+<h2 align="center">Nom: <%= @user.last_name %></h2>
+</div>
+<h1 align="center">Commandes de ce client</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Recette</th>
+      <th scope="col">Numéro</th>
+      <th scope="col">Avancement</th>
+    </tr>
+  </thead>
+  <tbody>
+      <% @orders.each do |order| %>
+    <tr class="alternating-tr">
+      <td><%= order.recipe %></td>
+      <td><%= order.id %></td>
+      <td><%= order.state %></td>
+      <td><%= link_to "Mettre à jour", edit_order_path(order), class: "btn btn-xs btn-primary" %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
