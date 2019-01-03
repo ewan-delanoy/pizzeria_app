@@ -12,40 +12,14 @@
   </thead>
   <tbody>
       <% @orders.each do |order| %>
-    <tr class="alternating-tr">  
-      <td><%= order.orderer_first_name %></td>
-      <td><%= order.orderer_last_name %></td>
+    <tr class="alternating-tr">
+      <td><%= link_to order.user.first_name, user_path(order.user) %></td>
+      <td><%= link_to order.user.last_name, user_path(order.user) %></td>
       <td><%= order.recipe %></td>
       <td><%= order.id %></td>
       <td><%= order.state %></td>
       <td><%= link_to "Mettre à jour", edit_order_path(order), class: "btn btn-xs btn-primary" %></td>
-      <td><%= link_to "Voir", order_path(order), class: "btn btn-xs btn-success" %></td>
     </tr>
     <% end %>
   </tbody>
 </table>
-
-
-<% @orders.each do |order| %>
-  <div class="row">
-    <div class="col-xs-8 col-xs-offset-2">
-      <div class="well well-lg">
-        <div class="order-title">
-          <%= order.id %> : <%= order.recipe %>
-        </div>
-        <div class="order-body">
-          Commandé par <%= order.orderer_first_name %>
-          <%= order.orderer_last_name %> à
-          <%= order.created_at %>
-        </div>
-        <div class="order-body">
-          <%= order.state %>
-        </div>
-        <div class="order-actions">
-          <%= link_to "Mettre à jour", edit_order_path(order), class: "btn btn-xs btn-primary" %>
-          <%= link_to "Voir", order_path(order), class: "btn btn-xs btn-success" %>
-        </div>
-      </div>
-    </div>
-  </div>
-<% end %>
