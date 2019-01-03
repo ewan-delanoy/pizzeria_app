@@ -9,10 +9,11 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @order.state = "Reçue"
-    @order.user_id = 2
+    dummy = User.first
+    @order.user= dummy
+    @order.orderer_first_name= dummy.first_name
+    @order.orderer_last_name= dummy.last_name
     @order.admin_id = 1
-    @order.orderer_first_name="Peggy"
-    @order.orderer_last_name="Lee"
     @order.save
     if @order.save
       flash[:success] = "Votre commande a bien été reçue."
