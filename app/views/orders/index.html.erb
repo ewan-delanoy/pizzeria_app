@@ -1,25 +1,3 @@
 <h1 align="center">Liste des commandes</h1>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Prénom Client</th>
-      <th scope="col">Nom Client</th>
-      <th scope="col">Recette</th>
-      <th scope="col">Numéro</th>
-      <th scope="col">Avancement</th>
-    </tr>
-  </thead>
-  <tbody>
-      <% @orders.each do |order| %>
-    <tr class="alternating-tr">
-      <td><%= link_to order.user.first_name, user_path(order.user) %></td>
-      <td><%= link_to order.user.last_name, user_path(order.user) %></td>
-      <td><%= order.recipe %></td>
-      <td><%= order.id %></td>
-      <td><%= order.state %></td>
-      <td><%= link_to "Mettre à jour", edit_order_path(order), class: "btn btn-xs btn-primary" %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= render 'list', obj: @orders, list_is_full: true  %>
