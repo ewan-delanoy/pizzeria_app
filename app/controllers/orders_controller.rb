@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   before_action :set_usual_order, only: [:show, :edit, :update]
   def index
-    @orders = Order.all
+    @orders = Order.paginate(page: params[:order_page], per_page: 4)
   end
   def new
     @order = Order.new

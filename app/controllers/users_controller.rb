@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all
+    @users = User.paginate(page: params[:user_page], per_page: 4)
   end
   def show
-    @orders = Order.all
     @user = User.find(params[:id])
+    @user_orders = @user.orders.paginate(page: params[:order_page], per_page: 4)
   end
 
   def new
