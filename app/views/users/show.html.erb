@@ -1,9 +1,23 @@
+
+
+<% if admin_logged_in? %>
 <h1 align="center">Coordonnées client</h1>
+<% elsif user_logged_in? %>
+<h1 align="center">Vos Coordonnées</h1>
+<% end %>
+
+
 <div class="well col-xs-8 col-xs-offset-2">
 <h2 align="center">Prénom: <%= @user.first_name %></h2>
 <br/>
 <h2 align="center">Nom: <%= @user.last_name %></h2>
 </div>
+
+
+<% if admin_logged_in? %>
 <h1 align="center">Commandes de ce client</h1>
+<% elsif user_logged_in? %>
+<h1 align="center">Vos&nbsp;Commandes</h1>
+<% end %>
 
 <%= render 'orders/list', obj: @user_orders, list_is_full: false  %>
