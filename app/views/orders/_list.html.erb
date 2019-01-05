@@ -1,6 +1,4 @@
-<div align="center">
-  <%= will_paginate obj, :param_name => 'order_page' %>
-</div>
+
 <table class="table">
   <thead>
     <tr>
@@ -23,11 +21,10 @@
       <td><%= order.recipe %></td>
       <td><%= order.id %></td>
       <td><%= order.state %></td>
+      <% if admin_logged_in? %>
       <td><%= link_to "Mettre à jour", edit_order_path(order), class: "btn btn-xs btn-primary" %></td>
+      <% end %>
     </tr>
     <% end %>
   </tbody>
 </table>
-<div align="center">
-  <%= will_paginate obj, :param_name => 'order_page' %>
-</div>
