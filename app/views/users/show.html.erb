@@ -2,7 +2,7 @@
 
 <% if admin_logged_in? %>
 <h1 align="center">Coordonnées client</h1>
-<% elsif user_logged_in? %>
+<% elsif logged_in? %>
 <h1 align="center">Vos Coordonnées</h1>
 <% end %>
 
@@ -16,7 +16,7 @@
 
 <% if admin_logged_in? %>
 <h1 align="center">Commandes de ce client</h1>
-<% elsif user_logged_in? %>
+<% elsif logged_in? %>
 <h1 align="center">Vos&nbsp;Commandes</h1>
 <% end %>
 
