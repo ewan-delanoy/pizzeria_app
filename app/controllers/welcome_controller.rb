@@ -1,7 +1,8 @@
 class WelcomeController < ApplicationController
-  def index
-  end
   def users
+    if admin_logged_in?
+      render 'admins'
+    end
   end
   def admins
   end
