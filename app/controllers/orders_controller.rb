@@ -9,8 +9,7 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @order.state = "Reçue"
-    dummy = User.first
-    @order.user= dummy
+    @order.user= current_user
     @order.admin_id = 1
     @order.save
     if @order.save

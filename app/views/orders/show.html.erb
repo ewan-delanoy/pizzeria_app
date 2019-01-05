@@ -2,16 +2,20 @@
 
 <h2 align="center">Numéro de la commande: <%= @order.id %></h2>
 <div class="well col-xs-8 col-xs-offset-2">
-  <h4 class="center description"> Prénom : <%= @order.orderer_first_name %> </h4>
+  <h4 class="center description"> Prénom : <%= @order.user.first_name %> </h4>
   <hr>
-  <h4 class="center description"> Nom : <%= @order.orderer_last_name %> </h4>
+  <h4 class="center description"> Nom : <%= @order.user.last_name %> </h4>
   <hr>
   <h4 class="center description"> Recette : <%= @order.recipe %> </h4>
   <hr>
   <h4 class="center description"> Avancement : <%= @order.state %> </h4>
   <hr>
   <div class="order-actions">
+    <% if admin_logged_in? %>
     <%= link_to "Mettre à jour", edit_order_path(@order), class: "btn btn-xs btn-primary" %>
     <%= link_to "Toutes les commandes", orders_path, class: "btn btn-xs btn-success" %>
+    <% elsif logged_in? %>
+    <%= link_to "Toutes vos commandes", orders_path, class: "btn btn-xs btn-success" %>
+    <% end %>
   </div>
 </div>

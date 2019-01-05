@@ -1,4 +1,6 @@
-
+<div align="center">
+  <%= will_paginate obj, :param_name => 'order_page' %>
+</div>
 <table class="table">
   <thead>
     <tr>
@@ -8,6 +10,7 @@
       <% end %>
       <th scope="col">Recette</th>
       <th scope="col">Numéro</th>
+      <th scope="col">Date de création</th>
       <th scope="col">Avancement</th>
     </tr>
   </thead>
@@ -20,6 +23,7 @@
       <% end %>
       <td><%= order.recipe %></td>
       <td><%= order.id %></td>
+      <td><%= order.created_at.strftime('%c') %></td>
       <td><%= order.state %></td>
       <% if admin_logged_in? %>
       <td><%= link_to "Mettre à jour", edit_order_path(order), class: "btn btn-xs btn-primary" %></td>
@@ -28,3 +32,6 @@
     <% end %>
   </tbody>
 </table>
+<div align="center">
+  <%= will_paginate obj, :param_name => 'order_page' %>
+</div>
