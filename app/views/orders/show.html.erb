@@ -8,6 +8,8 @@
   <hr>
   <h4 class="center description"> Recette : <%= @order.recipe %> </h4>
   <hr>
+  <h4 class="center description"> Date de création : <%= @order.created_at.strftime('%c') %> </h4>
+  <hr>
   <h4 class="center description"> Avancement : <%= @order.state %> </h4>
   <hr>
   <div class="order-actions">
