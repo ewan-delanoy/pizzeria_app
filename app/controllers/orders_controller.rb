@@ -3,7 +3,10 @@ class OrdersController < ApplicationController
   before_action :require_logged, only: [:index, :new, :create, :show]
   before_action :require_admin, only: [:edit, :update]
   def index
-    @orders = Order.paginate(page: params[:order_page], per_page: 4)
+    @orders = Order.paginate(page: params[:order_page], per_page: 20)
+    if !admin_logged_in?
+      redirect_to users_path(current_user)
+    end
   end
   def new
     @order = Order.new
@@ -12,7 +15,6 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.state = "Reçue"
     @order.user= current_user
-    @order.admin_id = 1
     @order.save
     if @order.save
       flash[:success] = "Votre commande a bien été reçue."
