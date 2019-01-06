@@ -3,45 +3,36 @@
 
 <div class='row'>
   <div class='col-xs-12'>
+    <div class="editform-header">
+      <div class="control-label col-sm-4">
+      </div>
+      <div class="col-sm-6">
+        Commande <%= @order.id %> : <%= @order.recipe %>
+        commandée par <%= @order.user.first_name %> <%= @order.user.last_name %>
+        à <%= @order.created_at.strftime('%c') %>
+      </div>
+    </div>
+    <br/>
     <%= form_for(@order, :html => {class: "form-horizontal", role: "form"}) do |f| %>
-      <div class="form-group">
-        <div class="control-label col-sm-4">
-          <%= f.label :orderer_first_name, "Prénom du Client : " %>
-        </div>
-        <div class="col-sm-6">
-          <%= f.text_field :orderer_first_name, class: "form-control", placeholder: "Prénom", :readonly => true %>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="control-label col-sm-4">
-          <%= f.label :orderer_last_name, "Nom du Client : " %>
-        </div>
-        <div class="col-sm-6">
-          <%= f.text_field :orderer_last_name, class: "form-control", placeholder: "Nom", :readonly => true %>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="control-label col-sm-4">
-          <%= f.label :recipe, "Recette : " %>
-        </div>
-        <div class="col-sm-6">
-          <%= f.text_field :recipe, class: "form-control", placeholder: "Recette", :readonly => true %>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="control-label col-sm-4">
-          <%= f.label :id, "Numéro de commande : " %>
-        </div>
-        <div class="col-sm-6">
-          <%= f.text_field :id, class: "form-control", placeholder: "Numéro de commande", :readonly => true %>
-        </div>
-      </div>
       <div class="form-group">
         <div class="control-label col-sm-4">
           <%= f.label :state, "Avancement : " %>
         </div>
         <div class="col-sm-6">
-          <%= f.text_field :state, class: "form-control", placeholder: "Avancement" %>
+          <%= f.select :state, options_for_select(
+                { "Reçue" => "Reçue",
+                  "Acceptée" => "Acceptée",
+                  "Refusée" => "Refusée",
+                  "En préparation" => "En préparation",
+                  "En cours de livraison" => "En cours de livraison",
+                  "Livrée" => "Livrée"
+                 }, @order.state
+          ), class: "form-control" %>
+<%
+=begin %>
+<%= f.text_field :state, class: "form-control", placeholder: "Avancement" %>
+<%
+=end %>
         </div>
       </div>
       <div class="form-group">
