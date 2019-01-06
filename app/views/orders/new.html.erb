@@ -10,7 +10,15 @@
           <%= f.label :recipe, "Recette : " %>
         </div>
         <div class="col-sm-6">
-          <%= f.text_field :recipe, class: "form-control", placeholder: "Recette" %>
+          <%= f.select :recipe, options_for_select(
+                { "Fermière" => "Fermière",
+                  "Trois Fromages" => "Trois Fromages",
+                  "Anchois" => "Anchois",
+                  "Provençale" => "Provençale",
+                  "Forestière" => "Forestière",
+                  "Nordique" => "Nordique"
+                 }
+          ), class: "form-control" %>
         </div>
       </div>
       <div class="form-group">
@@ -49,24 +57,6 @@
 
 <%
 =begin %>
-
-   <div class="form-group col-md-6">
-     <div class="col-md-12">
-       <%= f.label :card_expires, "Date d'expiration" %>
-     </div>
-     <div class="col-md-3">
-       <%= f.select :card_expires_month, options_for_select(Date::MONTHNAMES.compact.each_with_index.map { |name, i| ["#{i+1} - #{name}", i+1]}),
-       { include_blank: 'Mois' },
-       class: "form-control", required: true %>
-     </div>
-     <div class="col-md-3">
-       <%= f.select :card_expires_year, options_for_select((Date.today.year..(Date.today.year+10)).to_a.push),
-       { include_blank: 'Année' },
-       class: "form-control",
-       required: true %>
-     </div>
-   </div>
-
 <%
 =end %>
    <div class="form-group">
