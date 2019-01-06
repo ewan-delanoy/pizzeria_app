@@ -10,34 +10,24 @@
 User.create(email:"luke.skywalker@example.com",
             first_name:"Luke",
             last_name:"Skywalker",
-            password_digest:"blank");
+            password:"password");
 
 User.create(email:"peggy.lee@heythere.com",
             first_name:"Peggy",
             last_name:"Lee",
-            password_digest:"blank");
+            password:"password");
 
-Order.create(recipe:"Calzone",
-            user_id: 2,
-            orderer_first_name:"Peggy",
-            orderer_last_name:"Lee",
-            state:"Reçue");
+Admin.create(name:"Maxime",
+            password:"password");
 
-Order.create(recipe:"Trois fromages",
-            user_id: 2,
-            orderer_first_name:"Luke",
-            orderer_last_name:"Skywalker",
-            state:"Reçue");
+meals=["Fermière","Trois Fromages","Anchois","Provençale","Forestière","Nordique"]
+states=["Reçue","Acceptée","Refusée","En préparation","En cours de livraison","Livrée"]
 
-
-Order.create(recipe:"Jambon",
-            user_id: 2,
-            orderer_first_name:"Peggy",
-            orderer_last_name:"Lee",
-            state:"Reçue");
-
-Order.create(recipe:"Trois fromages",
-            user_id: 2,
-            orderer_first_name:"Luke",
-            orderer_last_name:"Skywalker",
-            state:"Reçue");
+for i in 0..5
+  for j in 0..5
+    temp_user = User.find(((i+j)%2)+1)
+    Order.create(recipe:meals[i],
+                   user: temp_user,
+                  state:states[j])
+  end
+end
