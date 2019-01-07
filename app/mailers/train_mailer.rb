@@ -1,5 +1,5 @@
 class TrainMailer < ApplicationMailer
-  default from: 'ne-pas-répondre@pizzeria.com'
+  default from: 'ne-pas-repondre@pizzeria.com'
 
   def welcome_email
     #@user = params[:user]
