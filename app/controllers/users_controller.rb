@@ -7,16 +7,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user_orders = @user.orders.paginate(page: params[:order_page], per_page: 4)
     if (!admin_logged_in?)&&(current_user != @user)
-      puts "AAA"
-      p current_user
-      puts "BBB"
-      p @user
-      puts "CCC"
       flash[:danger] = "Vous ne pouvez pas visualiser les coordonnées des autres utilisateurs"
       redirect_to root_path
     end
   end
-
   def new
     @user = User.new
   end
