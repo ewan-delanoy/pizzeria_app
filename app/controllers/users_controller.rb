@@ -17,7 +17,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:success] = "Bienvenue à notre Pizzeria #{@user.first_name} #{@user.last_name}"
+      UserMailer.registration_confirmation(@user).deliver
+      flash[:success] = "Veuillez confirmer votre email pour continuer"
       redirect_to root_path
     else
       render 'new'
@@ -26,5 +27,16 @@ class UsersController < ApplicationController
   private
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :password)
+  end
+  def confirm_email
+    user = User.find_by_confirm_token(params[:id])
+    if user
+      user.email_activate
+      flash[:success] = "Bravo! Votre email est bien confirmé. Connectez-vous pour continuer."
+      redirect_to root_path
+    else
+      flash[:error] = "Désolé. Cet utilisateur n'existe pas."
+      redirect_to root_path
+    end
   end
 end
