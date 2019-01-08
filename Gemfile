@@ -39,7 +39,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'will_paginate', '3.1.5'
 gem 'bootstrap-will_paginate', '0.0.10'
-
+gem "recaptcha", require: "recaptcha/rails"
 
 
 
