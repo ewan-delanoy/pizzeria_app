@@ -9,7 +9,8 @@ class TrainMailer < ApplicationMailer
 
   def registration_confirmation_email(user)
     @user= user
-    mail(:to => "#{user.first_name} #{user.last_name}  <#{user.email}>", :subject => "Registration Confirmation")
+    mail(:to => "#{user.first_name} #{user.last_name}  <#{user.email}>",
+      :subject => "Registration Confirmation")
   end
 
 

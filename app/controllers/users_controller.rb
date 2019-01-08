@@ -24,10 +24,6 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
-  private
-  def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password)
-  end
   def confirm_email
     user = User.find_by_confirm_token(params[:id])
     if user
@@ -38,5 +34,9 @@ class UsersController < ApplicationController
       flash[:error] = "Désolé. Cet utilisateur n'existe pas."
       redirect_to root_path
     end
+  end
+  private
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :email, :password)
   end
 end
