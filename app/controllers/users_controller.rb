@@ -28,8 +28,9 @@ class UsersController < ApplicationController
     user = User.find_by_confirm_token(params[:id])
     if user
       user.email_activate
-      flash[:success] = "Bravo! Votre email est bien confirmé. Connectez-vous pour continuer."
-      redirect_to root_path
+      session[:user_id] = user.id
+      flash[:success] = "Bravo ! Votre inscription est confirmée et vous êtes maintenant connecté(e)."
+      redirect_to user_path(user)
     else
       flash[:error] = "Désolé. Cet utilisateur n'existe pas."
       redirect_to root_path

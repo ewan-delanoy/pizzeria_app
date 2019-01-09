@@ -1,5 +1,15 @@
-Hi <%= @user.first_name %> <%= @user.last_name %>,
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1> Bonjour <%= @user.first_name %> <%= @user.last_name %> </h1>,
 
-Thanks for registering! To confirm your registration click the URL below.
+    <p> Merci pour votre inscription ! Cliquez ou recopiez l'URL ci-dessous pour confirmer
+    votre inscription. </p>
 
-<%= confirm_email_user_url(@user.confirm_token) %>
+    <p> <%= confirm_email_user_url(@user.confirm_token) %> </p>
+
+  </body>
+</html>

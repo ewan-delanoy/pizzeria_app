@@ -1,5 +1,6 @@
-Hi <%= @user.first_name %> <%= @user.last_name %>,
+Bonjour <%= @user.first_name %> <%= @user.last_name %>,
 
-Thanks for registering! To confirm your registration click the URL below.
+Merci pour votre inscription ! Cliquez ou recopiez l'URL ci-dessous pour confirmer
+votre inscription.
 
 <%= confirm_email_user_url(@user.confirm_token) %>
