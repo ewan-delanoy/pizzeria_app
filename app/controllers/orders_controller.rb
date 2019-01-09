@@ -8,6 +8,10 @@ class OrdersController < ApplicationController
       redirect_to users_path(current_user)
     end
   end
+  def index_for_user(some_user)
+    @orders = some_user.orders.paginate(page: params[:order_page], per_page: 20)
+    render 'index_for_user'
+  end
   def new
     @order = Order.new
   end
