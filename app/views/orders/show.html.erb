@@ -28,7 +28,7 @@
 
 <script type="text/javascript">
   function order_state_updater() {
-    $("#wrapper_for_order_state").replaceWith('<%= j render @order.state %>');
+    $("#wrapper_for_order_state").replaceWith('<%= j @order.state %>');
   }
   setInterval("order_state_updater();",2000);
 </script>
