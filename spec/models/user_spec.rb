@@ -9,9 +9,16 @@ describe User do
     )
     expect(user).to be_valid
   end
-  it "is invalid without a firstname"
-  it "is invalid without a lastname"
-  it "is invalid without an email address"
-  it "is invalid with a duplicate email address"
-  it "returns a contact's full name as a string"
+  it "has a valid factory" do
+    expect(build(:user)).to be_valid
+  end
+
+  describe'GET#show'do
+    it "assigns the requested user to @user" do
+        contact = create(:user)
+        get :show, id: user
+        expect(assigns(:user)).to eq user
+    end
+  end
+
 end
