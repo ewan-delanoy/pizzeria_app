@@ -1,0 +1,10 @@
+<% if @admin_logged_in %>
+<h1 align="center">
+  Liste des commandes de <%= @user.first_name %> <%= @user.last_name %>
+</h1>
+<% else %>
+<h1 align="center">
+  Liste de vos commandes
+</h1>
+<% end %>
+<%= render 'list', obj: @orders, list_is_full: false  %>

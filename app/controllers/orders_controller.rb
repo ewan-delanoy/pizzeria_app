@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   before_action :set_usual_order, only: [:show, :edit, :update]
-  before_action :require_logged, only: [:index, :new, :create, :show]
-  before_action :require_admin, only: [:edit, :update]
+  before_action :require_logged, only: [:index_for_user, :new, :create, :show]
+  before_action :require_admin, only: [:index,:edit, :update]
   def index
     @orders = Order.paginate(page: params[:order_page], per_page: 20)
     if !admin_logged_in?
@@ -9,8 +9,9 @@ class OrdersController < ApplicationController
     end
   end
   def index_for_user
-    the_user = User.find(params[:user_id])
-    @orders = the_user.orders.paginate(page: params[:order_page], per_page: 20)
+    @admin_logged_in = admin_logged_in?
+    @user = User.find(params[:user_id])
+    @orders = @user.orders.paginate(page: params[:order_page], per_page: 20)
     render 'index_for_user'
   end
   def new

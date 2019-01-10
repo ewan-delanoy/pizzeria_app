@@ -10,14 +10,25 @@
   <hr>
   <h4 class="center description"> Date de création : <%= @order.created_at.strftime('%c') %> </h4>
   <hr>
-  <h4 class="center description"> Avancement : <%= @order.state %> </h4>
+  <h4 class="center description"> Avancement :
+    <div id="wrapper_for_order_state">
+        <%= @order.state %>
+    </div>
+  </h4>
   <hr>
   <div class="order-actions">
     <% if admin_logged_in? %>
     <%= link_to "Mettre à jour", edit_order_path(@order), class: "btn btn-xs btn-primary" %>
-    <%= link_to "Toutes les commandes", orders_path, class: "btn btn-xs btn-success" %>
+    <%= link_to "Toutes les commandes de ce client", orders_of_user_path(@order.user), class: "btn btn-xs btn-success" %>
     <% elsif logged_in? %>
-    <%= link_to "Toutes vos commandes", orders_path, class: "btn btn-xs btn-success" %>
+    <%= link_to "Toutes vos commandes", orders_of_user_path(@order.user), class: "btn btn-xs btn-success" %>
     <% end %>
   </div>
 </div>
+
+<script type="text/javascript">
+  function order_state_updater() {
+    $(".wrapper_for_order_state").replaceWith();
+  }
+  setInterval("order_state_updater();",2000);
+</script>
