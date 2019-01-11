@@ -12,13 +12,4 @@ describe User do
   it "has a valid factory" do
     expect(build(:user)).to be_valid
   end
-
-  describe'GET#show'do
-    it "assigns the requested user to @user" do
-        contact = create(:user)
-        get :show, id: user
-        expect(assigns(:user)).to eq user
-    end
-  end
-
 end
