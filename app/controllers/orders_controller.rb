@@ -31,6 +31,9 @@ class OrdersController < ApplicationController
   end
   def show
   end
+  def ajax_show
+    @order = Order.find(params[:order_id])
+  end
   def edit
   end
   def update
