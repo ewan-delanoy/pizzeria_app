@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   post 'adminlogin', to: 'adminsessions#create'
   delete 'adminlogout', to: 'adminsessions#destroy'
   get '/users/:user_id/orders', to: 'orders#index_for_user', as: 'orders_of_user'
-  get '/orders/:order_id/ajax_show', to: 'orders#ajax_show', as 'orders_ajax_show'
+  get '/orders/:order_id/ajax_show', to: 'orders#ajax_show', as: 'orders_ajax_show'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :users do
     member do
