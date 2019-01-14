@@ -28,7 +28,14 @@
 
 <script type="text/javascript">
   function order_state_updater() {
-    $("#wrapper_for_order_state").replaceWith('<%= j @order.state %>');
+    $.ajax({
+   url: 'http://localhost:3000/orders/<%= @order.id %>/ajax_show',
+   type: "GET",
+   success: function(response) {
+        updated_data = $(response).find('#ajax_wrapper');
+        $("#wrapper_for_order_state").replaceWith(updated_data);
+     }
+   })
   }
   setInterval("order_state_updater();",2000);
 </script>
