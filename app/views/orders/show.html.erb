@@ -30,11 +30,7 @@
   function order_state_updater() {
     $.ajax({
    url: 'http://localhost:3000/orders/<%= @order.id %>/ajax_show',
-   type: "GET",
-   success: function(response) {
-        updated_data = $(response).find('#ajax_wrapper');
-        $("#wrapper_for_order_state").replaceWith(updated_data);
-     }
+   type: "GET"
    })
   }
   setInterval("order_state_updater();",2000);

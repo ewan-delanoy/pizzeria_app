@@ -1,9 +1,16 @@
-require'rails_helper'
+require 'rails_helper'
 
-describe'GET usercontroller#show'do
-  it "assigns the requested user to @user" do
-      user = create(:user)
-      get :show, params: { id: user}
-      expect(assigns(:user)).to eq user
+describe UsersController, type: :controller do
+  describe 'GET #show' do
+    subject { get :show, params: { id: user } }
+
+    context 'given a user' do
+      let(:user) { create(:user) }
+
+      it 'assigns it to @user' do
+        subject
+        expect(assigns(:user)).to eq user
+      end
+    end
   end
 end

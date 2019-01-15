@@ -1,0 +1,25 @@
+# Logfile created on 2019-01-14 16:20:41 +0100 by logger.rb/61378
+I [2019-01-14T16:20:40+01:00] POST "https://api.sandbox.mangopay.com/v2.01/oauth/token" grant_type=client_credentials
+  [270.3ms] 200 {"access_token":"[FILTERED]","token_type":"bearer","expires_in":1199}
+
+E [2019-01-14T16:20:41+01:00] POST "https://api.sandbox.mangopay.com/v2.01/blueglasseslimited/users/natural" {"FirstName":"Peggy","LastName":"Lee","Nationality":"German"}
+  [46.8ms] 400 {"Message":"One or several required parameters are missing or incorrect. An incorrect resource ID also raises this kind of error.","Type":"param_error","Id":"0219d134-fd7d-4f68-906c-a74605e6463a#1547479241","Date":1547479242.0,"errors":{"Nationality":"The requested value is not an ISO 3166-1 alpha-2 code which is expected.","Birthday":"The Birthday field is required.","CountryOfResidence":"The CountryOfResidence field is required.","Email":"The Email field is required."}}
+
+E [2019-01-14T16:24:55+01:00] POST "https://api.sandbox.mangopay.com/v2.01/blueglasseslimited/users/natural" {"FirstName":"Peggy","LastName":"Lee","Nationality":"fr","CountryOfResidence":"France","Email":"peggy.lee@heythere.com","Birthday":"30/04/1971"}
+  [59.0ms] 400 {"Message":"One or several required parameters are missing or incorrect. An incorrect resource ID also raises this kind of error.","Type":"param_error","Id":"e86b7339-1047-4f1c-a692-b48a47a50008#1547479495","Date":1547479496.0,"errors":{"CountryOfResidence":"The requested value is not an ISO 3166-1 alpha-2 code which is expected.","Birthday":"The Birthday field is required."}}
+
+E [2019-01-14T16:25:49+01:00] POST "https://api.sandbox.mangopay.com/v2.01/blueglasseslimited/users/natural" {"FirstName":"Peggy","LastName":"Lee","Nationality":"fr","CountryOfResidence":"fr","Email":"peggy.lee@heythere.com","Birthday":"30/04/1971"}
+  [68.8ms] 400 {"Message":"One or several required parameters are missing or incorrect. An incorrect resource ID also raises this kind of error.","Type":"param_error","Id":"032efaa4-1515-4e67-b9c5-c55f0f17686d#1547479550","Date":1547479551.0,"errors":{"Birthday":"The Birthday field is required."}}
+
+E [2019-01-14T16:29:46+01:00] POST "https://api.sandbox.mangopay.com/v2.01/blueglasseslimited/users/natural" {"FirstName":"Peggy","LastName":"Lee","Nationality":"fr","CountryOfResidence":"fr","Email":"peggy.lee@heythere.com","Birthday":"02/04/1971"}
+  [51.5ms] 400 {"Message":"One or several required parameters are missing or incorrect. An incorrect resource ID also raises this kind of error.","Type":"param_error","Id":"2d23eb7f-b58b-44c4-9df3-13f26bf320ac#1547479786","Date":1547479787.0,"errors":{"Birthday":"The Birthday field is required."}}
+
+E [2019-01-14T16:33:07+01:00] POST "https://api.sandbox.mangopay.com/v2.01/blueglasseslimited/users/natural" {"FirstName":"Peggy","LastName":"Lee","Nationality":"fr","CountryOfResidence":"fr","Email":"peggy.lee@heythere.com","Birthday":"1463496101"}
+  [49.1ms] 400 {"Message":"One or several required parameters are missing or incorrect. An incorrect resource ID also raises this kind of error.","Type":"param_error","Id":"fcc4f944-dd76-47fa-9b41-09e4beff3c7e#1547479987","Date":1547479988.0,"errors":{"Birthday":"The Birthday field is required."}}
+
+I [2019-01-14T17:35:16+01:00] POST "https://api.sandbox.mangopay.com/v2.01/oauth/token" grant_type=client_credentials
+  [522.8ms] 200 {"access_token":"[FILTERED]","token_type":"bearer","expires_in":1199}
+
+I [2019-01-14T17:35:17+01:00] POST "https://api.sandbox.mangopay.com/v2.01/blueglasseslimited/users/natural" {"FirstName":"Peggy","LastName":"Lee","Nationality":"fr","CountryOfResidence":"fr","Email":"peggy.lee@heythere.com","Birthday":34031106}
+  [537.4ms] 200 {"Address":{"AddressLine1":null,"AddressLine2":null,"City":null,"Region":null,"PostalCode":null,"Country":null},"FirstName":"Peggy","LastName":"Lee","Birthday":34031106,"Nationality":"FR","CountryOfResidence":"FR","Occupation":null,"IncomeRange":null,"ProofOfIdentity":null,"ProofOfAddress":null,"Capacity":"NORMAL","PersonType":"NATURAL","Email":"peggy.lee@heythere.com","KYCLevel":"LIGHT","Id":"60409938","Tag":null,"CreationDate":1547483717}
+
