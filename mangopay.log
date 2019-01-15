@@ -23,3 +23,72 @@ I [2019-01-14T17:35:16+01:00] POST "https://api.sandbox.mangopay.com/v2.01/oauth
 I [2019-01-14T17:35:17+01:00] POST "https://api.sandbox.mangopay.com/v2.01/blueglasseslimited/users/natural" {"FirstName":"Peggy","LastName":"Lee","Nationality":"fr","CountryOfResidence":"fr","Email":"peggy.lee@heythere.com","Birthday":34031106}
   [537.4ms] 200 {"Address":{"AddressLine1":null,"AddressLine2":null,"City":null,"Region":null,"PostalCode":null,"Country":null},"FirstName":"Peggy","LastName":"Lee","Birthday":34031106,"Nationality":"FR","CountryOfResidence":"FR","Occupation":null,"IncomeRange":null,"ProofOfIdentity":null,"ProofOfAddress":null,"Capacity":"NORMAL","PersonType":"NATURAL","Email":"peggy.lee@heythere.com","KYCLevel":"LIGHT","Id":"60409938","Tag":null,"CreationDate":1547483717}
 
+I [2019-01-15T10:00:21+01:00] POST "https://api.sandbox.mangopay.com/v2.01/oauth/token" grant_type=client_credentials
+  [1204.6ms] 200 {"access_token":"[FILTERED]","token_type":"bearer","expires_in":1199}
+
+I [2019-01-15T10:00:22+01:00] POST "https://api.sandbox.mangopay.com/v2.01/blueglasseslimited/users/natural" {"FirstName":"Peggy","LastName":"Lee","Nationality":"fr","CountryOfResidence":"fr","Email":"peggy.lee@heythere.com","Birthday":34031106}
+  [1589.4ms] 200 {"Address":{"AddressLine1":null,"AddressLine2":null,"City":null,"Region":null,"PostalCode":null,"Country":null},"FirstName":"Peggy","LastName":"Lee","Birthday":34031106,"Nationality":"FR","CountryOfResidence":"FR","Occupation":null,"IncomeRange":null,"ProofOfIdentity":null,"ProofOfAddress":null,"Capacity":"NORMAL","PersonType":"NATURAL","Email":"peggy.lee@heythere.com","KYCLevel":"LIGHT","Id":"60423247","Tag":null,"CreationDate":1547542822}
+
+I [2019-01-15T10:22:15+01:00] POST "https://api.sandbox.mangopay.com/v2.01/oauth/token" grant_type=client_credentials
+  [401.1ms] 200 {"access_token":"[FILTERED]","token_type":"bearer","expires_in":1199}
+
+I [2019-01-15T10:22:16+01:00] POST "https://api.sandbox.mangopay.com/v2.01/blueglasseslimited/users/natural" {"FirstName":"Peggy","LastName":"Lee","Nationality":"fr","CountryOfResidence":"fr","Email":"peggy.lee@heythere.com","Birthday":34031106}
+  [152.1ms] 200 {"Address":{"AddressLine1":null,"AddressLine2":null,"City":null,"Region":null,"PostalCode":null,"Country":null},"FirstName":"Peggy","LastName":"Lee","Birthday":34031106,"Nationality":"FR","CountryOfResidence":"FR","Occupation":null,"IncomeRange":null,"ProofOfIdentity":null,"ProofOfAddress":null,"Capacity":"NORMAL","PersonType":"NATURAL","Email":"peggy.lee@heythere.com","KYCLevel":"LIGHT","Id":"60424705","Tag":null,"CreationDate":1547544136}
+
+E [2019-01-15T10:33:24+01:00] POST "https://api.sandbox.mangopay.com/v2.01/blueglasseslimited/wallets" {"Owners":[{"Address":{"AddressLine1":null,"AddressLine2":null,"City":null,"Region":null,"PostalCode":null,"Country":null},"FirstName":"Peggy","LastName":"Lee","Birthday":34031106,"Nationality":"FR","CountryOfResidence":"FR","Occupation":null,"IncomeRange":null,"ProofOfIdentity":null,"ProofOfAddress":null,"Capacity":"NORMAL","PersonType":"NATURAL","Email":"peggy.lee@heythere.com","KYCLevel":"LIGHT","Id":"60424705","Tag":null,"CreationDate":1547544136}],"Description":"Peggys wallet","Currency":"EUR"}
+  [51.0ms] 400 {"Message":"One or several required parameters are missing or incorrect. An incorrect resource ID also raises this kind of error.","Type":"param_error","Id":"9fe11e23-684e-47b3-9632-e082e13d3b5b#1547544804","Date":1547544805.0,"errors":{"Owners":"Unexpected character encountered while parsing value: {. Path 'Owners', line 1, position 12.","Owners[0]":"After parsing a value an unexpected character was encountered: :. Path 'Owners[0]', line 1, position 21."}}
+
+I [2019-01-15T10:46:44+01:00] POST "https://api.sandbox.mangopay.com/v2.01/oauth/token" grant_type=client_credentials
+  [220.1ms] 200 {"access_token":"[FILTERED]","token_type":"bearer","expires_in":1199}
+
+I [2019-01-15T10:46:44+01:00] POST "https://api.sandbox.mangopay.com/v2.01/blueglasseslimited/wallets" {"Owners":["60424705"],"Description":"Peggys wallet","Currency":"EUR"}
+  [803.0ms] 200 {"Description":"Peggys wallet","Owners":["60424705"],"Balance":{"Currency":"EUR","Amount":0},"Currency":"EUR","FundsType":"DEFAULT","Id":"60425828","Tag":null,"CreationDate":1547545604}
+
+I [2019-01-15T11:22:06+01:00] POST "https://api.sandbox.mangopay.com/v2.01/oauth/token" grant_type=client_credentials
+  [708.2ms] 200 {"access_token":"[FILTERED]","token_type":"bearer","expires_in":1199}
+
+I [2019-01-15T11:22:07+01:00] POST "https://api.sandbox.mangopay.com/v2.01/blueglasseslimited/cardregistrations" {"UserId":"60424705","Currency":"EUR","Tag":"Test Card Registration"}
+  [221.5ms] 200 {"Id":"60427689","Tag":"Test Card Registration","CreationDate":1547547727,"UserId":"60424705","AccessKey":"[FILTERED]","PreregistrationData":"[FILTERED]","RegistrationData":"[FILTERED]","CardId":null,"CardType":"CB_VISA_MASTERCARD","CardRegistrationURL":"[FILTERED]","ResultCode":null,"ResultMessage":null,"Currency":"EUR","Status":"CREATED"}
+
+I [2019-01-15T11:22:16+01:00] PUT "https://api.sandbox.mangopay.com/v2.01/blueglasseslimited/cardregistrations/60427689" {"RegistrationData":"test RegistrationData"}
+  [121.6ms] 200 {"Id":"60427689","Tag":"Test Card Registration","CreationDate":1547547727,"UserId":"60424705","AccessKey":"[FILTERED]","PreregistrationData":"[FILTERED]","RegistrationData":"[FILTERED]","CardId":null,"CardType":"CB_VISA_MASTERCARD","CardRegistrationURL":"[FILTERED]","ResultCode":"105206","ResultMessage":"Registration data : Invalid format","Currency":"EUR","Status":"ERROR"}
+
+I [2019-01-15T14:21:52+01:00] POST "https://api.sandbox.mangopay.com/v2.01/oauth/token" grant_type=client_credentials
+  [216.9ms] 200 {"access_token":"[FILTERED]","token_type":"bearer","expires_in":1199}
+
+I [2019-01-15T14:21:53+01:00] POST "https://api.sandbox.mangopay.com/v2.01/blueglasseslimited/users/natural" {"FirstName":"Peggy","LastName":"Lee","Nationality":"fr","CountryOfResidence":"fr","Email":"peggy.lee@heythere.com","Birthday":34031106}
+  [782.9ms] 200 {"Address":{"AddressLine1":null,"AddressLine2":null,"City":null,"Region":null,"PostalCode":null,"Country":null},"FirstName":"Peggy","LastName":"Lee","Birthday":34031106,"Nationality":"FR","CountryOfResidence":"FR","Occupation":null,"IncomeRange":null,"ProofOfIdentity":null,"ProofOfAddress":null,"Capacity":"NORMAL","PersonType":"NATURAL","Email":"peggy.lee@heythere.com","KYCLevel":"LIGHT","Id":"60435965","Tag":null,"CreationDate":1547558513}
+
+I [2019-01-15T14:21:54+01:00] POST "https://api.sandbox.mangopay.com/v2.01/blueglasseslimited/wallets" {"Owners":["60435965"],"Description":"Peggys wallet","Currency":"EUR"}
+  [254.0ms] 200 {"Description":"Peggys wallet","Owners":["60435965"],"Balance":{"Currency":"EUR","Amount":0},"Currency":"EUR","FundsType":"DEFAULT","Id":"60435966","Tag":null,"CreationDate":1547558514}
+
+I [2019-01-15T14:21:54+01:00] POST "https://api.sandbox.mangopay.com/v2.01/blueglasseslimited/cardregistrations" {"UserId":"60435965","Currency":"EUR","Tag":"Test Card Registration"}
+  [138.4ms] 200 {"Id":"60435968","Tag":"Test Card Registration","CreationDate":1547558514,"UserId":"60435965","AccessKey":"[FILTERED]","PreregistrationData":"[FILTERED]","RegistrationData":"[FILTERED]","CardId":null,"CardType":"CB_VISA_MASTERCARD","CardRegistrationURL":"[FILTERED]","ResultCode":null,"ResultMessage":null,"Currency":"EUR","Status":"CREATED"}
+
+I [2019-01-15T14:21:54+01:00] PUT "https://api.sandbox.mangopay.com/v2.01/blueglasseslimited/cardregistrations/60435968" {"RegistrationData":"test RegistrationData"}
+  [79.0ms] 200 {"Id":"60435968","Tag":"Test Card Registration","CreationDate":1547558514,"UserId":"60435965","AccessKey":"[FILTERED]","PreregistrationData":"[FILTERED]","RegistrationData":"[FILTERED]","CardId":null,"CardType":"CB_VISA_MASTERCARD","CardRegistrationURL":"[FILTERED]","ResultCode":"105206","ResultMessage":"Registration data : Invalid format","Currency":"EUR","Status":"ERROR"}
+
+I [2019-01-15T14:27:14+01:00] POST "https://api.sandbox.mangopay.com/v2.01/oauth/token" grant_type=client_credentials
+  [554.7ms] 200 {"access_token":"[FILTERED]","token_type":"bearer","expires_in":1199}
+
+I [2019-01-15T14:27:14+01:00] POST "https://api.sandbox.mangopay.com/v2.01/blueglasseslimited/users/natural" {"FirstName":"Peggy","LastName":"Lee","Nationality":"fr","CountryOfResidence":"fr","Email":"peggy.lee@heythere.com","Birthday":34031106}
+  [463.1ms] 200 {"Address":{"AddressLine1":null,"AddressLine2":null,"City":null,"Region":null,"PostalCode":null,"Country":null},"FirstName":"Peggy","LastName":"Lee","Birthday":34031106,"Nationality":"FR","CountryOfResidence":"FR","Occupation":null,"IncomeRange":null,"ProofOfIdentity":null,"ProofOfAddress":null,"Capacity":"NORMAL","PersonType":"NATURAL","Email":"peggy.lee@heythere.com","KYCLevel":"LIGHT","Id":"60436082","Tag":null,"CreationDate":1547558835}
+
+I [2019-01-15T14:27:15+01:00] POST "https://api.sandbox.mangopay.com/v2.01/blueglasseslimited/wallets" {"Owners":["60436082"],"Description":"Peggys wallet","Currency":"EUR"}
+  [129.2ms] 200 {"Description":"Peggys wallet","Owners":["60436082"],"Balance":{"Currency":"EUR","Amount":0},"Currency":"EUR","FundsType":"DEFAULT","Id":"60436083","Tag":null,"CreationDate":1547558835}
+
+I [2019-01-15T14:27:15+01:00] POST "https://api.sandbox.mangopay.com/v2.01/blueglasseslimited/cardregistrations" {"UserId":"60436082","Currency":"EUR","Tag":"Test Card Registration"}
+  [413.8ms] 200 {"Id":"60436084","Tag":"Test Card Registration","CreationDate":1547558835,"UserId":"60436082","AccessKey":"[FILTERED]","PreregistrationData":"[FILTERED]","RegistrationData":"[FILTERED]","CardId":null,"CardType":"CB_VISA_MASTERCARD","CardRegistrationURL":"[FILTERED]","ResultCode":null,"ResultMessage":null,"Currency":"EUR","Status":"CREATED"}
+
+I [2019-01-15T14:27:42+01:00] POST "https://api.sandbox.mangopay.com/v2.01/oauth/token" grant_type=client_credentials
+  [436.0ms] 200 {"access_token":"[FILTERED]","token_type":"bearer","expires_in":1199}
+
+I [2019-01-15T14:27:43+01:00] POST "https://api.sandbox.mangopay.com/v2.01/blueglasseslimited/users/natural" {"FirstName":"Peggy","LastName":"Lee","Nationality":"fr","CountryOfResidence":"fr","Email":"peggy.lee@heythere.com","Birthday":34031106}
+  [352.6ms] 200 {"Address":{"AddressLine1":null,"AddressLine2":null,"City":null,"Region":null,"PostalCode":null,"Country":null},"FirstName":"Peggy","LastName":"Lee","Birthday":34031106,"Nationality":"FR","CountryOfResidence":"FR","Occupation":null,"IncomeRange":null,"ProofOfIdentity":null,"ProofOfAddress":null,"Capacity":"NORMAL","PersonType":"NATURAL","Email":"peggy.lee@heythere.com","KYCLevel":"LIGHT","Id":"60436091","Tag":null,"CreationDate":1547558863}
+
+I [2019-01-15T14:27:43+01:00] POST "https://api.sandbox.mangopay.com/v2.01/blueglasseslimited/wallets" {"Owners":["60436091"],"Description":"Peggys wallet","Currency":"EUR"}
+  [169.0ms] 200 {"Description":"Peggys wallet","Owners":["60436091"],"Balance":{"Currency":"EUR","Amount":0},"Currency":"EUR","FundsType":"DEFAULT","Id":"60436092","Tag":null,"CreationDate":1547558863}
+
+I [2019-01-15T14:27:43+01:00] POST "https://api.sandbox.mangopay.com/v2.01/blueglasseslimited/cardregistrations" {"UserId":"60436091","Currency":"EUR","Tag":"Test Card Registration"}
+  [132.5ms] 200 {"Id":"60436093","Tag":"Test Card Registration","CreationDate":1547558863,"UserId":"60436091","AccessKey":"[FILTERED]","PreregistrationData":"[FILTERED]","RegistrationData":"[FILTERED]","CardId":null,"CardType":"CB_VISA_MASTERCARD","CardRegistrationURL":"[FILTERED]","ResultCode":null,"ResultMessage":null,"Currency":"EUR","Status":"CREATED"}
+
