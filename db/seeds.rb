@@ -7,14 +7,14 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-User.create(email:"luke.skywalker@example.com",
-            first_name:"Luke",
-            last_name:"Skywalker",
+User.create(email:"richardtabere@gmx.com",
+            first_name:"Richard",
+            last_name:"Tabere",
             password:"password");
 
-User.create(email:"peggy.lee@heythere.com",
-            first_name:"Peggy",
-            last_name:"Lee",
+User.create(email:"rebecca.flower@gmx.com",
+            first_name:"Rebecca",
+            last_name:"Flower",
             password:"password");
 
 Admin.create(name:"Maxime",

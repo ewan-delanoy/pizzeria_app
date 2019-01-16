@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_16_083611) do
+ActiveRecord::Schema.define(version: 2019_01_16_085043) do
 
   create_table "admins", force: :cascade do |t|
     t.string "name"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 2019_01_16_083611) do
     t.string "confirm_token"
     t.datetime "birthday"
     t.integer "mangopay_user_id"
+    t.integer "mangopay_wallet_id"
   end
 
 end
