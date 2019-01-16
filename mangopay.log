@@ -116,3 +116,18 @@ I [2019-01-15T15:42:31+01:00] POST "https://api.sandbox.mangopay.com/v2.01/blueg
 I [2019-01-15T15:42:32+01:00] POST "https://api.sandbox.mangopay.com/v2.01/blueglasseslimited/payins/card/web" {"AuthorId":"60443985","CreditedUserId":"60443985","CreditedWalletId":"60443987","DebitedFunds":{"Currency":"EUR","Amount":1000},"Fees":{"Currency":"EUR","Amount":0},"CardType":"CB_VISA_MASTERCARD","ReturnURL":"https://api.sandbox.mangopay.com","Culture":"FR","Tag":"Test PayIn/Card/Web"}
   [623.2ms] 200 {"Id":"60443989","Tag":"Test PayIn/Card/Web","CreationDate":1547563352,"AuthorId":"60443985","CreditedUserId":"60443985","DebitedFunds":{"Currency":"EUR","Amount":1000},"CreditedFunds":{"Currency":"EUR","Amount":1000},"Fees":{"Currency":"EUR","Amount":0},"Status":"CREATED","ResultCode":null,"ResultMessage":null,"ExecutionDate":null,"Type":"PAYIN","Nature":"REGULAR","CreditedWalletId":"60443987","DebitedWalletId":null,"PaymentType":"CARD","ExecutionType":"WEB","RedirectURL":"[FILTERED]","ReturnURL":"https://api.sandbox.mangopay.com/?transactionId=60443989","TemplateURL":"https://api.sandbox.mangopay.com/Content/PaylineTemplate?rp=9b011bd5265147cca3fe254919266bc2\u0026transactionId=60443989","CardType":"CB_VISA_MASTERCARD","Culture":"FR","SecureMode":"DEFAULT","StatementDescriptor":null}
 
+I [2019-01-16T10:09:29+01:00] POST "https://api.sandbox.mangopay.com/v2.01/oauth/token" grant_type=client_credentials
+  [210.0ms] 200 {"access_token":"[FILTERED]","token_type":"bearer","expires_in":1199}
+
+I [2019-01-16T10:09:30+01:00] POST "https://api.sandbox.mangopay.com/v2.01/blueglasseslimited/users/natural" {"FirstName":"Rebecca","LastName":"Flower","Nationality":"fr","CountryOfResidence":"fr","Email":"peggy.lee@heythere.com","Birthday":43286400}
+  [980.9ms] 200 {"Address":{"AddressLine1":null,"AddressLine2":null,"City":null,"Region":null,"PostalCode":null,"Country":null},"FirstName":"Rebecca","LastName":"Flower","Birthday":43286400,"Nationality":"FR","CountryOfResidence":"FR","Occupation":null,"IncomeRange":null,"ProofOfIdentity":null,"ProofOfAddress":null,"Capacity":"NORMAL","PersonType":"NATURAL","Email":"peggy.lee@heythere.com","KYCLevel":"LIGHT","Id":"60462360","Tag":null,"CreationDate":1547629770}
+
+I [2019-01-16T10:09:33+01:00] POST "https://api.sandbox.mangopay.com/v2.01/blueglasseslimited/wallets" {"Owners":["60462360"],"Description":"Rebecca's wallet","Currency":"EUR"}
+  [555.1ms] 200 {"Description":"Rebecca's wallet","Owners":["60462360"],"Balance":{"Currency":"EUR","Amount":0},"Currency":"EUR","FundsType":"DEFAULT","Id":"60462361","Tag":null,"CreationDate":1547629773}
+
+I [2019-01-16T10:19:16+01:00] POST "https://api.sandbox.mangopay.com/v2.01/blueglasseslimited/users/natural" {"FirstName":"Richard","LastName":"Flower","Nationality":"fr","CountryOfResidence":"fr","Email":"peggy.lee@heythere.com","Birthday":40780800}
+  [546.9ms] 200 {"Address":{"AddressLine1":null,"AddressLine2":null,"City":null,"Region":null,"PostalCode":null,"Country":null},"FirstName":"Richard","LastName":"Flower","Birthday":40780800,"Nationality":"FR","CountryOfResidence":"FR","Occupation":null,"IncomeRange":null,"ProofOfIdentity":null,"ProofOfAddress":null,"Capacity":"NORMAL","PersonType":"NATURAL","Email":"peggy.lee@heythere.com","KYCLevel":"LIGHT","Id":"60462805","Tag":null,"CreationDate":1547630357}
+
+I [2019-01-16T10:19:18+01:00] POST "https://api.sandbox.mangopay.com/v2.01/blueglasseslimited/wallets" {"Owners":["60462805"],"Description":"Richard's wallet","Currency":"EUR"}
+  [96.6ms] 200 {"Description":"Richard's wallet","Owners":["60462805"],"Balance":{"Currency":"EUR","Amount":0},"Currency":"EUR","FundsType":"DEFAULT","Id":"60462806","Tag":null,"CreationDate":1547630358}
+

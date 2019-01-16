@@ -10,12 +10,19 @@
 User.create(email:"richardtabere@gmx.com",
             first_name:"Richard",
             last_name:"Tabere",
-            password:"password");
+            password:"password",
+            birthday:DateTime.strptime('18 04 1971','%d %m %Y'),
+            mangopay_user_id:60462805,
+            mangopay_wallet_id:60462806);
 
 User.create(email:"rebecca.flower@gmx.com",
             first_name:"Rebecca",
             last_name:"Flower",
-            password:"password");
+            password:"password",
+            birthday:DateTime.strptime('17 05 1971','%d %m %Y'),
+            mangopay_user_id:60462360,
+            mangopay_wallet_id:60462361);
+
 
 Admin.create(name:"Maxime",
             password:"password");
