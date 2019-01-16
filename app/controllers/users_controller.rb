@@ -16,6 +16,22 @@ class UsersController < ApplicationController
   end
   def create
     @user = User.new(user_params)
+    compacted_date = @user.birthday.to_i
+    mangopay_user= MangoPay::NaturalUser.create({
+      "FirstName"=>@user.first_name,
+      "LastName"=>@user.last_name,
+      "Nationality"=>"fr",
+      "CountryOfResidence"=>"fr",
+      "Email"=>@user.email,
+      "Birthday"=>compacted_date
+    })
+    mangopay_wallet= MangoPay::Wallet.create({
+      "Owners" => [mangopay_user['Id']],
+      "Description" => "Pizza buyer's wallet",
+      "Currency" => "EUR"
+    })
+    @user.mangopay_user_id = mangopay_user['Id']
+    @user.mangopay_wallet_id = mangopay_wallet['Id']
     if @user.save
       TrainMailer.registration_confirmation_email(@user).deliver
       flash[:success] = "Veuillez confirmer votre email pour continuer"
