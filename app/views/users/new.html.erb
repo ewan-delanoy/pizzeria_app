@@ -36,6 +36,19 @@
         </div>
       </div>
       <div class="form-group">
+        <div class="control-label col-sm-3">
+          <%= f.label :birthday, "Date de naissance : " %>
+        </div>
+        <div class="col-sm-7">
+          <%= f.date_select :birthday,
+              {order: [:day, :month, :year],
+              prompt: { day: 'Jour', month: 'Mois',
+                        year: 'Année' },
+                        start_year: Date.today.year - 18,
+                        end_year: Date.today.year - 100}, {required: true} %>
+        </div>
+      </div>
+      <div class="form-group">
         <div class="col-sm-4 col-sm-offset-4">
         <%= recaptcha_tags %>
         </div>
