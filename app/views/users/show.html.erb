@@ -11,8 +11,15 @@
 <h2 align="center">Prénom: <%= @user.first_name %></h2>
 <br/>
 <h2 align="center">Nom: <%= @user.last_name %></h2>
+</br>
+<h2 align="center">Courriel: <%= @user.email %></h2>
+<% if admin_logged_in? %>
+<br/>
+<h2 align="center">Identifiant Mangopay: <%= @user.mangopay_user_id %></h2>
+<br/>
+<h2 align="center">Portefeuille Mangopay: <%= @user.mangopay_wallet_id %></h2>
+<% end %>
 </div>
-
 
 <% if admin_logged_in? %>
 <h1 align="center">Commandes de ce client</h1>
